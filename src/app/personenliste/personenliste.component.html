@@ -1,0 +1,26 @@
+<table class="table table-sm">
+    <thead>
+    <tr>
+        <td style="width: 40%">Name</td>
+        <td>Geburtsdatum</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let aktPerson of personen" (click)="onMouseClick(aktPerson)"
+        [ngClass]="{selectedPerson: aktPerson === selectedPerson}"
+    >
+        <td>{{aktPerson.name}}</td>
+        <td>{{aktPerson.dateofbirth}}</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<hr>
+
+<div *ngIf="selectedPerson">
+    <h2>Ausgeählte Person: {{selectedPerson.name}}</h2>
+    <button type="button" class="btn btn-info" (click)="showDetailPage()">
+        Details
+    </button>
+</div>
